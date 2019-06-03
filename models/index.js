@@ -10,7 +10,16 @@ const connectDb = () => {
 
 const models = { User, Event };
 
+const createUsersWithMessages = async () => {
+    const user1 = new models.User({
+      username: 'rwieruch',
+    });
+  
+    await user1.save();
+  };
+
 module.exports = {
     connectDb,
-    models: models
+    models: models,
+    createUsersWithMessages: createUsersWithMessages
 };
