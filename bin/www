@@ -96,8 +96,10 @@ fromModels.connectDb().then(async () => {
   if (eraseDatabaseOnSync) {
     await Promise.all([
       fromModels.models.User.deleteMany({}),
+      fromModels.models.Event.deleteMany({}),
     ]);
 
-    fromModels.createUsersWithMessages();
+    fromModels.createUsers();
+    fromModels.createEventsWithUser();
   }
 });
