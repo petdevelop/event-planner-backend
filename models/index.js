@@ -4,9 +4,14 @@ const User = require('./user');
 const Event = require('./event');
 
 const connectDb = () => {
-    console.log()
-  return mongoose.connect('mongodb://127.0.0.1/event_panner', { useNewUrlParser: true });
+  return mongoose.connect('mongodb+srv://parronte:abc123-%2B@cluster0-liyg5.mongodb.net/event_planner?retryWrites=true&w=majority', { useNewUrlParser: true });
 };
+
+
+// mongoose.connect('mongodb+srv://parronte:abc123-%2B@cluster0-liyg5.mongodb.net/event_planner?retryWrites=true&w=majority',  { useNewUrlParser: true }, function(error) {
+//   // Check error in initial connection. There is no 2nd param to the callback.
+//   console.log(error);
+// });
 
 const models = { User, Event };
 

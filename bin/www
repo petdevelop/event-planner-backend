@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('event-panner-backend:server');
 var http = require('http');
+const mongoose = require('mongoose');
 
  /**
  * Normalize a port into a number, string, or false.
@@ -92,13 +93,12 @@ server.on('listening', onListening);
 
 const eraseDatabaseOnSync = true;
 
-fromModels.connectDb().then(async () => {
+fromModels.connectDb().then(async() => {
   if (eraseDatabaseOnSync) {
     await Promise.all([
       fromModels.models.User.deleteMany({}),
       fromModels.models.Event.deleteMany({}),
     ]);
-
     fromModels.createUsers();
     fromModels.createEventsWithUser();
   }
