@@ -7,12 +7,6 @@ const connectDb = () => {
   return mongoose.connect('mongodb+srv://parronte:abc123-%2B@cluster0-liyg5.mongodb.net/event_planner?retryWrites=true&w=majority', { useNewUrlParser: true });
 };
 
-
-// mongoose.connect('mongodb+srv://parronte:abc123-%2B@cluster0-liyg5.mongodb.net/event_planner?retryWrites=true&w=majority',  { useNewUrlParser: true }, function(error) {
-//   // Check error in initial connection. There is no 2nd param to the callback.
-//   console.log(error);
-// });
-
 const models = { User, Event };
 
 const createUsers = async () => {
